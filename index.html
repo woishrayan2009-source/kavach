@@ -22,9 +22,9 @@
     <a class="site-nav-link" href="architecture.html">Architecture</a>
     <a class="site-nav-link" href="documents.html">Documents</a>
     <span class="site-nav-divider" aria-hidden="true"></span>
-    <a class="site-nav-link site-nav-link--external" href="https://extingoexhibition.netlify.app/" target="_blank" rel="noopener">Extingo <span class="ext-icon">↗</span></a>
-    <a class="site-nav-link site-nav-link--external" href="https://rakshak-exhibition.netlify.app/" target="_blank" rel="noopener">Rakshak <span class="ext-icon">↗</span></a>
-    <a class="site-nav-link site-nav-link--external" href="https://sanjeevani-exhibition.netlify.app/" target="_blank" rel="noopener">Sanjeevani <span class="ext-icon">↗</span></a>
+    <a class="site-nav-link site-nav-link--external" href="#extingo" target="_blank" rel="noopener">Extingo <span class="ext-icon">↗</span></a>
+    <a class="site-nav-link site-nav-link--external" href="#rakshak" target="_blank" rel="noopener">Rakshak <span class="ext-icon">↗</span></a>
+    <a class="site-nav-link site-nav-link--external" href="#sanjeevani" target="_blank" rel="noopener">Sanjeevani <span class="ext-icon">↗</span></a>
   </nav>
 </header>
 
@@ -54,11 +54,11 @@
           <span class="hero-stat-label">Built · Hardware + Software</span>
         </div>
         <div class="hero-stat">
-          <span class="hero-stat-value stat-demo">2</span>
+          <span class="hero-stat-value stat-demo">7</span>
           <span class="hero-stat-label">Software Demo</span>
         </div>
         <div class="hero-stat">
-          <span class="hero-stat-value stat-concept">5</span>
+          <span class="hero-stat-value stat-concept">0</span>
           <span class="hero-stat-label">Concept &amp; Design</span>
         </div>
       </div>
@@ -84,13 +84,13 @@
 
         <!-- 8 hazard nodes, ordered to match the module grid below -->
         <circle class="shield-node status-built"   cx="150"   cy="42"    r="8"/>
-        <circle class="shield-node status-concept" cx="226.4" cy="73.6"  r="8"/>
+        <circle class="shield-node status-demo" cx="226.4" cy="73.6"  r="8"/>
         <circle class="shield-node status-demo"    cx="258"   cy="150"   r="8"/>
         <circle class="shield-node status-demo"    cx="226.4" cy="226.4" r="8"/>
-        <circle class="shield-node status-concept" cx="150"   cy="258"   r="8"/>
-        <circle class="shield-node status-concept" cx="73.6"  cy="226.4" r="8"/>
-        <circle class="shield-node status-concept" cx="42"    cy="150"   r="8"/>
-        <circle class="shield-node status-concept" cx="73.6"  cy="73.6"  r="8"/>
+        <circle class="shield-node status-demo" cx="150"   cy="258"   r="8"/>
+        <circle class="shield-node status-demo" cx="73.6"  cy="226.4" r="8"/>
+        <circle class="shield-node status-demo" cx="42"    cy="150"   r="8"/>
+        <circle class="shield-node status-demo" cx="73.6"  cy="73.6"  r="8"/>
       </svg>
     </div>
   </section>
@@ -106,8 +106,8 @@
     <div class="filter-pills" role="group" aria-label="Module status filter">
       <button class="filter-pill" type="button" data-filter="all" aria-pressed="true">All · 8</button>
       <button class="filter-pill" type="button" data-filter="built" aria-pressed="false">🟢 Built · 1</button>
-      <button class="filter-pill" type="button" data-filter="demo" aria-pressed="false">🟡 Software Demo · 2</button>
-      <button class="filter-pill" type="button" data-filter="concept" aria-pressed="false">🔵 Concept · 5</button>
+      <button class="filter-pill" type="button" data-filter="demo" aria-pressed="false">🟡 Software Demo · 7</button>
+      <button class="filter-pill" type="button" data-filter="concept" aria-pressed="false">🔵 Concept · 0</button>
     </div>
     <span class="filter-count" id="filter-count" aria-live="polite">Showing all 8 modules</span>
   </section>
@@ -136,20 +136,19 @@
           </div>
         </div>
         <div class="module-card-foot">
-          <a class="btn-primary" href="https://extingoexhibition.netlify.app/">View Live Project →</a>
+          <a class="btn-primary" href="#extingo">View Live Project →</a>
         </div>
       </article>
 
-      <!-- 2. Electrical Fault Early-Warning — Concept -->
-      <article class="module-card module-card--concept" data-status="concept">
+      <!-- 2. Electrical Fault Early-Warning — Software Demo -->
+      <article class="module-card module-card--demo" data-status="demo">
         <div class="module-card-head">
           <div class="module-card-heading">
             <span class="module-tag">Electrical</span>
             <h2 class="module-title">Electrical Fault Early-Warning</h2>
           </div>
-          <span class="demo-mode-badge demo-mode-badge--concept"><span class="demo-mode-dot"></span>Concept</span>
+          <span class="demo-mode-badge demo-mode-badge--demo"><span class="demo-mode-dot"></span>Software Demo</span>
         </div>
-        <p class="module-status-note">Concept only — no hardware or software built yet.</p>
         <div class="module-copy">
           <div class="module-line">
             <span class="module-line-label">Problem</span>
@@ -161,21 +160,7 @@
           </div>
         </div>
         <div class="module-card-foot">
-          <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="panel-electrical">
-            <span class="accordion-toggle-icon">▸</span> Read the full concept
-          </button>
-          <div class="accordion-panel" id="panel-electrical">
-            <div class="accordion-panel-inner">
-              <div class="module-line">
-                <span class="module-line-label">In full</span>
-                <p class="module-line-text">In Delhi alone, roughly 70% of fire calls are attributed to electrical short-circuiting, and fire-safety engineers note that micro-arcing — a hazardous spark inside wiring, distinct from a full short — causes the large majority of these before any flame is visible. Arc-Fault Circuit Interrupters that catch this early have been mandatory in U.S. homes since 1999 but are essentially absent from Indian residential wiring codes. The proposed module clips a non-invasive current transformer onto a circuit, distinguishes arcing's erratic signature from a normal overload, and reports the fault to the Kavach dashboard the same way Extingo reports a confirmed fire.</p>
-              </div>
-              <div class="module-line">
-                <span class="module-line-label">Why it strengthens Kavach</span>
-                <p class="module-line-text">It's the one module that acts before a fire starts, not after — a meaningfully different value proposition from every other module in the grid.</p>
-              </div>
-            </div>
-          </div>
+          <a class="btn-primary" href="#electrical-fault">View Live Project →</a>
         </div>
       </article>
 
@@ -199,7 +184,7 @@
           </div>
         </div>
         <div class="module-card-foot">
-          <a class="btn-primary" href="https://rakshak-exhibition.netlify.app/">View Live Project →</a>
+          <a class="btn-primary" href="#rakshak">View Live Project →</a>
         </div>
       </article>
 
@@ -223,20 +208,19 @@
           </div>
         </div>
         <div class="module-card-foot">
-          <a class="btn-primary" href="https://sanjeevani-exhibition.netlify.app/">View Live Project →</a>
+          <a class="btn-primary" href="#sanjeevani">View Live Project →</a>
         </div>
       </article>
 
-      <!-- 5. Women's Safety Panic Trigger — Concept -->
-      <article class="module-card module-card--concept" data-status="concept">
+      <!-- 5. Women's Safety Panic Trigger — Software Demo -->
+      <article class="module-card module-card--demo" data-status="demo">
         <div class="module-card-head">
           <div class="module-card-heading">
             <span class="module-tag">Women's Safety</span>
             <h2 class="module-title">Panic Trigger</h2>
           </div>
-          <span class="demo-mode-badge demo-mode-badge--concept"><span class="demo-mode-dot"></span>Concept</span>
+          <span class="demo-mode-badge demo-mode-badge--demo"><span class="demo-mode-dot"></span>Software Demo</span>
         </div>
-        <p class="module-status-note">Concept only — no hardware or software built yet.</p>
         <div class="module-copy">
           <div class="module-line">
             <span class="module-line-label">Problem</span>
@@ -248,34 +232,19 @@
           </div>
         </div>
         <div class="module-card-foot">
-          <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="panel-women">
-            <span class="accordion-toggle-icon">▸</span> Read the full concept
-          </button>
-          <div class="accordion-panel" id="panel-women">
-            <div class="accordion-panel-inner">
-              <div class="module-line">
-                <span class="module-line-label">In full</span>
-                <p class="module-line-text">Manual panic-button wearables are already a very common category, but their core weakness is that they stop at "press this button." The proposed change is a sudden, sharp heart-rate spike combined with irregular, forceful motion — an automatic secondary trigger that reports into the same Kavach alert cascade (SMS, call, live location) already proven in Extingo and Rakshak, rather than existing as a standalone gadget.</p>
-              </div>
-              <div class="module-line">
-                <span class="module-line-label">Why frame it this way</span>
-                <p class="module-line-text">Presenting it as "we know this category is common, here's specifically what we changed and why" is far stronger in front of judges than presenting it as if it were novel outright.</p>
-              </div>
-            </div>
-          </div>
+          <a class="btn-primary" href="#panic-trigger">View Live Project →</a>
         </div>
       </article>
 
-      <!-- 6. Flood / Water-Level Sensing — Concept -->
-      <article class="module-card module-card--concept" data-status="concept">
+      <!-- 6. Flood / Water-Level Sensing — Software Demo -->
+      <article class="module-card module-card--demo" data-status="demo">
         <div class="module-card-head">
           <div class="module-card-heading">
             <span class="module-tag">Flood</span>
             <h2 class="module-title">Water-Level Sensing</h2>
           </div>
-          <span class="demo-mode-badge demo-mode-badge--concept"><span class="demo-mode-dot"></span>Concept</span>
+          <span class="demo-mode-badge demo-mode-badge--demo"><span class="demo-mode-dot"></span>Software Demo</span>
         </div>
-        <p class="module-status-note">Concept only — no hardware or software built yet.</p>
         <div class="module-copy">
           <div class="module-line">
             <span class="module-line-label">Problem</span>
@@ -287,34 +256,19 @@
           </div>
         </div>
         <div class="module-card-foot">
-          <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="panel-flood">
-            <span class="accordion-toggle-icon">▸</span> Read the full concept
-          </button>
-          <div class="accordion-panel" id="panel-flood">
-            <div class="accordion-panel-inner">
-              <div class="module-line">
-                <span class="module-line-label">In full</span>
-                <p class="module-line-text">A drain, basement entrance, or low-lying street point gets an ultrasonic sensor mounted at a known reference height, reporting rate-of-rise the same way Extingo's heat sensor already does — just reapplied to a different hazard.</p>
-              </div>
-              <div class="module-line">
-                <span class="module-line-label">Why it strengthens Kavach</span>
-                <p class="module-line-text">It reuses the same rate-of-rise algorithm concept from Extingo — one idea, three hazards: heat, water, and by extension gas concentration.</p>
-              </div>
-            </div>
-          </div>
+          <a class="btn-primary" href="#water-level-sensing">View Live Project →</a>
         </div>
       </article>
 
-      <!-- 7. School/Child Safety Tracking — Concept -->
-      <article class="module-card module-card--concept" data-status="concept">
+      <!-- 7. School/Child Safety Tracking — Software Demo -->
+      <article class="module-card module-card--demo" data-status="demo">
         <div class="module-card-head">
           <div class="module-card-heading">
             <span class="module-tag">School Safety</span>
             <h2 class="module-title">Child Safety Tracking</h2>
           </div>
-          <span class="demo-mode-badge demo-mode-badge--concept"><span class="demo-mode-dot"></span>Concept</span>
+          <span class="demo-mode-badge demo-mode-badge--demo"><span class="demo-mode-dot"></span>Software Demo</span>
         </div>
-        <p class="module-status-note">Concept only — no hardware or software built yet.</p>
         <div class="module-copy">
           <div class="module-line">
             <span class="module-line-label">Problem</span>
@@ -326,34 +280,19 @@
           </div>
         </div>
         <div class="module-card-foot">
-          <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="panel-school">
-            <span class="accordion-toggle-icon">▸</span> Read the full concept
-          </button>
-          <div class="accordion-panel" id="panel-school">
-            <div class="accordion-panel-inner">
-              <div class="module-line">
-                <span class="module-line-label">In full</span>
-                <p class="module-line-text">Beyond the tap notification itself, the system raises an alert to the Kavach dashboard if a child who tapped onto the morning bus never taps in at school within an expected time window — catching the case a simple notification would miss.</p>
-              </div>
-              <div class="module-line">
-                <span class="module-line-label">Why it strengthens Kavach</span>
-                <p class="module-line-text">It extends the safety theme beyond the home into the school, broadening the project's relevance for the exhibition's theme.</p>
-              </div>
-            </div>
-          </div>
+          <a class="btn-primary" href="#child-safety-tracking">View Live Project →</a>
         </div>
       </article>
 
-      <!-- 8. Unified Dashboard / Command Grid — Concept -->
-      <article class="module-card module-card--concept" data-status="concept">
+      <!-- 8. Unified Dashboard / Command Grid — Software Demo -->
+      <article class="module-card module-card--demo" data-status="demo">
         <div class="module-card-head">
           <div class="module-card-heading">
             <span class="module-tag">Command Grid</span>
             <h2 class="module-title">Unified Dashboard</h2>
           </div>
-          <span class="demo-mode-badge demo-mode-badge--concept"><span class="demo-mode-dot"></span>Concept</span>
+          <span class="demo-mode-badge demo-mode-badge--demo"><span class="demo-mode-dot"></span>Software Demo</span>
         </div>
-        <p class="module-status-note">Concept only — no hardware or software built yet.</p>
         <div class="module-copy">
           <div class="module-line">
             <span class="module-line-label">Problem</span>
@@ -365,17 +304,7 @@
           </div>
         </div>
         <div class="module-card-foot">
-          <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="panel-grid">
-            <span class="accordion-toggle-icon">▸</span> Read the full concept
-          </button>
-          <div class="accordion-panel" id="panel-grid">
-            <div class="accordion-panel-inner">
-              <div class="module-line">
-                <span class="module-line-label">Why this is the actual thesis</span>
-                <p class="module-line-text">This is the connective idea behind the whole project: not eight products, one grid. See the <a href="architecture.html">Architecture</a> page for the full diagram of how each module feeds into this shared cascade.</p>
-              </div>
-            </div>
-          </div>
+          <a class="btn-primary" href="#unified-dashboard">View Live Project →</a>
         </div>
       </article>
 
