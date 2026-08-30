@@ -1,0 +1,1016 @@
+/* ==========================================================================
+   Kavach — Unified Safety Command Grid
+   Tokens
+   (Identical to the canonical Kavach Design System / Extingo tokens.
+   --violet / --violet-dim are additive: a new, muted accent reserved
+   exclusively for the Concept-status badge, never reused elsewhere.)
+   ========================================================================== */
+:root {
+  --bg: #0a0c0e;
+  --surface: #14181b;
+  --surface-2: #1b2124;
+  --surface-3: #21282c;
+  --border: #262d32;
+  --border-soft: #1c2226;
+
+  --text: #e9edf0;
+  --text-dim: #8d969e;
+  --text-faint: #565f65;
+
+  --amber: #ff9d2e;
+  --amber-dim: #7a4f1c;
+  --red: #ff4757;
+  --red-dim: #6e232b;
+  --teal: #35e0c4;
+  --teal-dim: #1c5a4e;
+  --yellow: #ffcc4d;
+
+  --violet: #a390d4;
+  --violet-dim: #453a63;
+
+  --font-display: 'Rajdhani', 'Oswald', 'Arial Narrow', sans-serif;
+  --font-body: 'IBM Plex Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+
+  --radius: 6px;
+  --shadow-panel: 0 1px 0 rgba(255,255,255,0.02) inset, 0 8px 24px rgba(0,0,0,0.35);
+}
+
+/* ==========================================================================
+   Self-hosted fonts — no CDN dependency
+   Drop the matching .woff2 files into /fonts (see README) and these
+   resolve locally. Missing files fail silently to the system-font
+   fallbacks above; the page never reaches out to a network font host.
+   ========================================================================== */
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('../fonts/Rajdhani-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('../fonts/Rajdhani-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('../fonts/Rajdhani-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('../fonts/IBMPlexSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('../fonts/IBMPlexSans-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('../fonts/IBMPlexSans-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('../fonts/IBMPlexMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('../fonts/IBMPlexMono-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-image:
+    radial-gradient(ellipse 900px 500px at 15% -10%, rgba(255,157,46,0.06), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 100% 0%, rgba(53,224,196,0.05), transparent 55%);
+  background-attachment: fixed;
+}
+
+h1, h2, h3 { margin: 0; font-family: var(--font-display); }
+p { margin: 0; }
+
+a { color: inherit; }
+
+/* ==========================================================================
+   Header (identical structure to Extingo)
+   ========================================================================== */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 28px;
+  flex-wrap: wrap;
+}
+
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+
+.brand-mark {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: linear-gradient(135deg, var(--amber), var(--red));
+  box-shadow: 0 0 14px rgba(255,157,46,0.5);
+  flex-shrink: 0;
+}
+
+.brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.14em;
+  color: var(--text);
+}
+
+.brand-sub {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.site-nav {
+  display: flex;
+  align-items: stretch;
+  gap: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px;
+  flex-wrap: wrap;
+}
+
+.site-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--text-dim);
+  padding: 7px 16px;
+  border-radius: 16px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+.site-nav-link:hover { color: var(--text); }
+.site-nav-link.is-active {
+  background: var(--surface-3);
+  color: var(--amber);
+}
+
+.site-nav-divider {
+  width: 1px;
+  align-self: stretch;
+  margin: 2px 4px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+.site-nav-link--external:hover { color: var(--teal); }
+.site-nav-link--external .ext-icon {
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   Hazard rule — signature divider element (exact Extingo pattern)
+   ========================================================================== */
+.hazard-rule {
+  height: 6px;
+  width: 100%;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--amber) 0px,
+    var(--amber) 14px,
+    #0a0c0e 14px,
+    #0a0c0e 28px
+  );
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   Page layout
+   ========================================================================== */
+.dashboard {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 28px 24px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.panel-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--text-faint);
+  text-transform: uppercase;
+}
+
+.panel-title {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.panel-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.panel-head .panel-title { margin-right: auto; }
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 40px;
+  align-items: center;
+  padding: 40px 0 12px;
+}
+
+.hero-copy { display: flex; flex-direction: column; gap: 18px; }
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-eyebrow::before {
+  content: "";
+  width: 20px;
+  height: 1px;
+  background: var(--amber);
+  display: inline-block;
+}
+
+.hero-title {
+  font-size: clamp(34px, 4.4vw, 54px);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--text);
+}
+.hero-title .accent { color: var(--amber); }
+
+.hero-body {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-dim);
+  max-width: 54ch;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 28px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.hero-stat { display: flex; flex-direction: column; gap: 2px; }
+
+.hero-stat-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 26px;
+}
+.hero-stat-value.stat-built { color: var(--teal); }
+.hero-stat-value.stat-demo { color: var(--amber); }
+.hero-stat-value.stat-concept { color: var(--violet); }
+
+.hero-stat-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+/* ---- Shield glyph: 8 hazard nodes ringed around a shield core ---- */
+.hero-shield-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shield-svg { width: 100%; max-width: 340px; height: auto; }
+
+.shield-core-fill { fill: var(--surface); stroke: var(--border); stroke-width: 1.5; }
+.shield-core-glyph { stroke: var(--amber); stroke-width: 2; fill: none; }
+
+.shield-node {
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 5px currentColor);
+}
+.shield-node.status-built { fill: var(--teal); stroke: var(--teal); color: var(--teal); }
+.shield-node.status-demo { fill: var(--amber); stroke: var(--amber); color: var(--amber); }
+.shield-node.status-concept { fill: var(--violet); stroke: var(--violet); color: var(--violet); }
+
+.shield-spoke { stroke: var(--border); stroke-width: 1; opacity: 0.7; }
+
+@keyframes shield-node-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+.shield-node { animation: shield-node-pulse 3.4s ease-in-out infinite; }
+.shield-node:nth-child(odd) { animation-delay: 0.6s; }
+
+/* ==========================================================================
+   Demo mode badge (shared component — base structure from Extingo,
+   with status-specific colour modifiers added for Kavach)
+   ========================================================================== */
+.demo-mode-badge {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--yellow);
+  background: rgba(255, 204, 77, 0.08);
+  border: 1px solid rgba(255, 204, 77, 0.35);
+  border-radius: 20px;
+  padding: 6px 14px;
+  white-space: nowrap;
+}
+
+.demo-mode-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--yellow);
+  box-shadow: 0 0 6px rgba(255, 204, 77, 0.7);
+  flex-shrink: 0;
+}
+
+.demo-mode-badge--built {
+  color: var(--teal);
+  background: rgba(53, 224, 196, 0.08);
+  border-color: rgba(53, 224, 196, 0.35);
+}
+.demo-mode-badge--built .demo-mode-dot {
+  background: var(--teal);
+  box-shadow: 0 0 6px rgba(53, 224, 196, 0.7);
+}
+
+.demo-mode-badge--demo {
+  color: var(--amber);
+  background: rgba(255, 157, 46, 0.08);
+  border-color: rgba(255, 157, 46, 0.35);
+}
+.demo-mode-badge--demo .demo-mode-dot {
+  background: var(--amber);
+  box-shadow: 0 0 6px rgba(255, 157, 46, 0.7);
+}
+
+.demo-mode-badge--concept {
+  color: var(--violet);
+  background: rgba(163, 144, 212, 0.08);
+  border-color: rgba(163, 144, 212, 0.35);
+}
+.demo-mode-badge--concept .demo-mode-dot {
+  background: var(--violet);
+  box-shadow: 0 0 6px rgba(163, 144, 212, 0.7);
+}
+
+/* ==========================================================================
+   Filter bar
+   ========================================================================== */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 6px 0 4px;
+}
+
+.filter-bar-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.filter-pills {
+  display: flex;
+  gap: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px;
+  flex-wrap: wrap;
+}
+
+.filter-pill {
+  all: unset;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--text-dim);
+  padding: 7px 16px;
+  border-radius: 16px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+.filter-pill:hover { color: var(--text); }
+.filter-pill[aria-pressed="true"] {
+  background: var(--surface-3);
+  color: var(--text);
+}
+.filter-pill[aria-pressed="true"][data-filter="built"] { color: var(--teal); }
+.filter-pill[aria-pressed="true"][data-filter="demo"] { color: var(--amber); }
+.filter-pill[aria-pressed="true"][data-filter="concept"] { color: var(--violet); }
+.filter-pill:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+
+.filter-count {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+/* ==========================================================================
+   Module grid + cards
+   ========================================================================== */
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.module-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-panel);
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: border-color 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+}
+
+.module-card.is-hidden { display: none; }
+
+.module-card--built { border-color: var(--teal-dim); }
+.module-card--demo { border-color: var(--amber-dim); }
+.module-card--concept {
+  border-style: dashed;
+  border-color: var(--violet-dim);
+}
+
+.module-status-note {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-style: italic;
+  color: var(--violet);
+  letter-spacing: 0.02em;
+}
+
+.module-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.module-card-heading { display: flex; flex-direction: column; gap: 6px; }
+
+.module-tag {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-faint);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1px 5px;
+  letter-spacing: 0.08em;
+  align-self: flex-start;
+  text-transform: uppercase;
+}
+
+.module-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.module-subtitle {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+.module-copy { display: flex; flex-direction: column; gap: 10px; }
+
+.module-line { display: flex; flex-direction: column; gap: 3px; }
+
+.module-line-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.module-line-text {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-dim);
+}
+
+.module-card-foot { margin-top: auto; padding-top: 4px; }
+
+/* Live-project button — the standard Kavach primary button */
+.btn-primary {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  color: #0a0c0e;
+  background: linear-gradient(135deg, var(--amber), #ff7a2e);
+  padding: 10px 18px;
+  border-radius: 5px;
+  transition: filter 0.2s ease;
+}
+.btn-primary:hover { filter: brightness(1.08); }
+.btn-primary:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+
+/* Concept accordion toggle */
+.accordion-toggle {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--violet);
+}
+.accordion-toggle:hover { filter: brightness(1.15); }
+.accordion-toggle:focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; border-radius: 3px; }
+
+.accordion-toggle-icon {
+  transition: transform 0.25s ease;
+  font-size: 11px;
+  line-height: 1;
+}
+.accordion-toggle[aria-expanded="true"] .accordion-toggle-icon { transform: rotate(90deg); }
+
+.accordion-panel {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.25s ease, margin-top 0.3s ease;
+}
+.accordion-panel.is-open {
+  max-height: 480px;
+  opacity: 1;
+  margin-top: 10px;
+}
+
+.accordion-panel-inner {
+  border-top: 1px solid var(--border-soft);
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ==========================================================================
+   Section: problem framing (below hero)
+   ========================================================================== */
+.thesis-strip {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 4px 0 10px;
+}
+.thesis-strip-rule { flex: 1; height: 1px; background: var(--border); }
+.thesis-strip-text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Documents page
+   ========================================================================== */
+.page-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+.page-intro .panel-title { font-size: 24px; }
+.page-intro-note {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-faint);
+}
+
+.doc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.doc-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-panel);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.doc-card-head {
+  padding: 16px 18px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.doc-card-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.doc-card-title {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.doc-card-desc {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.4;
+  margin: 2px 0 0;
+}
+
+.doc-preview-wrap {
+  position: relative;
+  height: 220px;
+  background: var(--surface-2);
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.doc-preview-wrap iframe,
+.doc-preview-wrap video {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  background: #0d1011;
+}
+
+.doc-preview-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  pointer-events: none;
+}
+
+.doc-card-foot {
+  padding: 12px 18px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.doc-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-faint);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 2px 6px;
+  letter-spacing: 0.04em;
+}
+
+.doc-download {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: #0a0c0e;
+  background: linear-gradient(135deg, var(--amber), #ff7a2e);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  transition: filter 0.2s ease;
+}
+.doc-download:hover { filter: brightness(1.08); }
+.doc-download:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+.doc-download-icon { font-size: 12px; }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+  text-align: center;
+  padding: 20px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+/* ==========================================================================
+   Focus-visible polish
+   ========================================================================== */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   Page fade-in
+   ========================================================================== */
+.dashboard,
+.site-header {
+  animation: kavach-page-fade-in 0.4s ease both;
+}
+@keyframes kavach-page-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-shield-wrap { order: -1; max-width: 220px; margin: 0 auto; }
+}
+
+@media (max-width: 560px) {
+  .site-header { padding: 14px 18px; }
+  .dashboard { padding: 20px 16px 48px; }
+  .hero { padding: 24px 0 6px; }
+  .hero-stats { gap: 18px; }
+}
+
+/* ==========================================================================
+   Architecture page — diagram
+   ========================================================================== */
+.arch-intro { display: flex; flex-direction: column; gap: 10px; padding: 6px 0 4px; }
+
+.arch-title {
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.arch-subtitle {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-dim);
+  max-width: 68ch;
+}
+
+.arch-diagram-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-panel);
+  padding: 20px 16px 8px;
+}
+
+.arch-svg { width: 100%; height: auto; display: block; }
+
+.arch-node-dot {
+  stroke-width: 2;
+  filter: drop-shadow(0 0 5px currentColor);
+}
+.arch-node-dot.status-built { fill: var(--teal); stroke: var(--teal); color: var(--teal); }
+.arch-node-dot.status-demo { fill: var(--amber); stroke: var(--amber); color: var(--amber); }
+.arch-node-dot.status-concept { fill: var(--violet); stroke: var(--violet); color: var(--violet); }
+
+.arch-node-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  fill: var(--text-dim);
+  text-anchor: middle;
+}
+
+.arch-feed-line {
+  fill: none;
+  stroke-width: 1.4;
+  opacity: 0.55;
+}
+.arch-feed-line.status-built { stroke: var(--teal); }
+.arch-feed-line.status-demo { stroke: var(--amber); }
+.arch-feed-line.status-concept { stroke: var(--violet); }
+
+.arch-hub-fill { fill: var(--surface-2); stroke: var(--amber); stroke-width: 2; }
+.arch-hub-glow { fill: none; stroke: var(--amber); stroke-width: 1; opacity: 0.35; }
+
+.arch-hub-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  fill: var(--text);
+  text-anchor: middle;
+  letter-spacing: 0.02em;
+}
+.arch-hub-sub {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  fill: var(--text-faint);
+  text-anchor: middle;
+  letter-spacing: 0.06em;
+}
+
+.arch-connector {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 1.6;
+}
+
+/* Alert cascade — same red-accented, pulsing visual language as the
+   Extingo alert-overlay component (.ext-alert-icon / .status-emergency) */
+.arch-cascade-box {
+  fill: var(--surface);
+  stroke: var(--red-dim);
+  stroke-width: 1.4;
+  animation: arch-cascade-pulse 2.2s ease-in-out infinite;
+}
+.arch-cascade-box:nth-of-type(2) { animation-delay: 0.35s; }
+.arch-cascade-box:nth-of-type(3) { animation-delay: 0.7s; }
+.arch-cascade-box:nth-of-type(4) { animation-delay: 1.05s; }
+
+@keyframes arch-cascade-pulse {
+  0%, 100% { stroke: var(--red-dim); filter: drop-shadow(0 0 0 rgba(255,71,87,0)); }
+  50% { stroke: var(--red); filter: drop-shadow(0 0 10px rgba(255,71,87,0.35)); }
+}
+
+.arch-cascade-icon {
+  font-size: 22px;
+  text-anchor: middle;
+  animation: arch-icon-pulse 2.2s ease-in-out infinite;
+  transform-origin: center;
+}
+.arch-cascade-icon.icon-2 { animation-delay: 0.35s; }
+.arch-cascade-icon.icon-3 { animation-delay: 0.7s; }
+.arch-cascade-icon.icon-4 { animation-delay: 1.05s; }
+
+@keyframes arch-icon-pulse {
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(255,71,87,0.35)); }
+  50% { filter: drop-shadow(0 0 10px rgba(255,71,87,0.9)); }
+}
+
+.arch-cascade-step {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  fill: var(--text-faint);
+  text-anchor: middle;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.arch-cascade-label {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  fill: var(--text);
+  text-anchor: middle;
+}
+
+.arch-cascade-arrow {
+  stroke: var(--red);
+  stroke-width: 1.6;
+  opacity: 0.8;
+}
+
+.arch-legend {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  padding: 14px 4px 18px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+}
+.arch-legend-item { display: flex; align-items: center; gap: 7px; }
+.arch-legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.arch-legend-dot.status-built { background: var(--teal); box-shadow: 0 0 6px var(--teal); }
+.arch-legend-dot.status-demo { background: var(--amber); box-shadow: 0 0 6px var(--amber); }
+.arch-legend-dot.status-concept { background: var(--violet); box-shadow: 0 0 6px var(--violet); }
+.arch-legend-dot.status-alert { background: var(--red); box-shadow: 0 0 6px var(--red); }
+
+.arch-note-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-panel);
+  padding: 22px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.arch-note-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.arch-note-text {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text-dim);
+  max-width: 72ch;
+}
+.arch-note-text strong { color: var(--text); font-weight: 600; }
+
+.arch-page-nav {
+  display: flex;
+  gap: 12px;
+  padding: 4px 0 8px;
+}
+
+/* ==========================================================================
+   Reduced motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .dashboard, .site-header { animation: none; }
+  .shield-node { animation: none; }
+  .accordion-panel { transition: none; }
+  .arch-cascade-box, .arch-cascade-icon { animation: none; }
+}
