@@ -22,9 +22,22 @@
     <a class="site-nav-link is-active" href="architecture.html">Architecture</a>
     <a class="site-nav-link" href="documents.html">Documents</a>
     <span class="site-nav-divider" aria-hidden="true"></span>
-    <a class="site-nav-link site-nav-link--external" href="#extingo" target="_blank" rel="noopener">Extingo <span class="ext-icon">↗</span></a>
-    <a class="site-nav-link site-nav-link--external" href="#rakshak" target="_blank" rel="noopener">Rakshak <span class="ext-icon">↗</span></a>
-    <a class="site-nav-link site-nav-link--external" href="#sanjeevani" target="_blank" rel="noopener">Sanjeevani <span class="ext-icon">↗</span></a>
+    <div class="nav-dropdown">
+      <button class="site-nav-link site-nav-link--external nav-dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="live-demos-menu">
+        Live Demos <span class="ext-icon nav-dropdown-caret">▾</span>
+      </button>
+      <div class="nav-dropdown-menu" id="live-demos-menu" role="menu" aria-label="Kavach live sites">
+        <a class="nav-dropdown-item" href="#extingo" target="_blank" rel="noopener" role="menuitem"><span class="nav-dropdown-dot status-built"></span>Extingo<span class="ext-icon">↗</span></a>
+        <a class="nav-dropdown-item" href="#rakshak" target="_blank" rel="noopener" role="menuitem"><span class="nav-dropdown-dot status-demo"></span>Rakshak<span class="ext-icon">↗</span></a>
+        <a class="nav-dropdown-item" href="#sanjeevani" target="_blank" rel="noopener" role="menuitem"><span class="nav-dropdown-dot status-demo"></span>Sanjeevani<span class="ext-icon">↗</span></a>
+        <div class="nav-dropdown-divider" role="separator"></div>
+        <a class="nav-dropdown-item" href="#electrical-fault" target="_blank" rel="noopener" role="menuitem"><span class="nav-dropdown-dot status-demo"></span>Electrical Fault Early-Warning<span class="ext-icon">↗</span></a>
+        <a class="nav-dropdown-item" href="#panic-trigger" target="_blank" rel="noopener" role="menuitem"><span class="nav-dropdown-dot status-demo"></span>Panic Trigger<span class="ext-icon">↗</span></a>
+        <a class="nav-dropdown-item" href="#water-level-sensing" target="_blank" rel="noopener" role="menuitem"><span class="nav-dropdown-dot status-demo"></span>Water-Level Sensing<span class="ext-icon">↗</span></a>
+        <a class="nav-dropdown-item" href="#child-safety-tracking" target="_blank" rel="noopener" role="menuitem"><span class="nav-dropdown-dot status-demo"></span>Child Safety Tracking<span class="ext-icon">↗</span></a>
+        <a class="nav-dropdown-item" href="#unified-dashboard" target="_blank" rel="noopener" role="menuitem"><span class="nav-dropdown-dot status-demo"></span>Unified Dashboard<span class="ext-icon">↗</span></a>
+      </div>
+    </div>
   </nav>
 </header>
 
@@ -50,20 +63,20 @@
 
       <!-- feed lines: modules -> hub -->
       <path class="arch-feed-line status-built"   d="M 70.0 66 Q 70.0 140 540 178"/>
-      <path class="arch-feed-line status-concept" d="M 204.3 66 Q 204.3 140 540 178"/>
+      <path class="arch-feed-line status-demo" d="M 204.3 66 Q 204.3 140 540 178"/>
       <path class="arch-feed-line status-demo"    d="M 338.6 66 Q 338.6 140 540 178"/>
       <path class="arch-feed-line status-demo"    d="M 472.9 66 Q 472.9 140 540 178"/>
-      <path class="arch-feed-line status-concept" d="M 607.1 66 Q 607.1 140 540 178"/>
-      <path class="arch-feed-line status-concept" d="M 741.4 66 Q 741.4 140 540 178"/>
-      <path class="arch-feed-line status-concept" d="M 875.7 66 Q 875.7 140 540 178"/>
-      <path class="arch-feed-line status-concept" d="M 1010.0 66 Q 1010.0 140 540 178"/>
+      <path class="arch-feed-line status-demo" d="M 607.1 66 Q 607.1 140 540 178"/>
+      <path class="arch-feed-line status-demo" d="M 741.4 66 Q 741.4 140 540 178"/>
+      <path class="arch-feed-line status-demo" d="M 875.7 66 Q 875.7 140 540 178"/>
+      <path class="arch-feed-line status-demo" d="M 1010.0 66 Q 1010.0 140 540 178"/>
 
       <!-- module nodes -->
       <g>
         <circle class="arch-node-dot status-built" cx="70" cy="50" r="16"/>
         <text class="arch-node-label" x="70" y="86">Extingo</text>
 
-        <circle class="arch-node-dot status-concept" cx="204.3" cy="50" r="16"/>
+        <circle class="arch-node-dot status-demo" cx="204.3" cy="50" r="16"/>
         <text class="arch-node-label" x="204.3" y="86">Electrical</text>
 
         <circle class="arch-node-dot status-demo" cx="338.6" cy="50" r="16"/>
@@ -72,16 +85,16 @@
         <circle class="arch-node-dot status-demo" cx="472.9" cy="50" r="16"/>
         <text class="arch-node-label" x="472.9" y="86">Sanjeevani</text>
 
-        <circle class="arch-node-dot status-concept" cx="607.1" cy="50" r="16"/>
+        <circle class="arch-node-dot status-demo" cx="607.1" cy="50" r="16"/>
         <text class="arch-node-label" x="607.1" y="86">Women's Safety</text>
 
-        <circle class="arch-node-dot status-concept" cx="741.4" cy="50" r="16"/>
+        <circle class="arch-node-dot status-demo" cx="741.4" cy="50" r="16"/>
         <text class="arch-node-label" x="741.4" y="86">Flood</text>
 
-        <circle class="arch-node-dot status-concept" cx="875.7" cy="50" r="16"/>
+        <circle class="arch-node-dot status-demo" cx="875.7" cy="50" r="16"/>
         <text class="arch-node-label" x="875.7" y="86">School Safety</text>
 
-        <circle class="arch-node-dot status-concept" cx="1010" cy="50" r="16"/>
+        <circle class="arch-node-dot status-demo" cx="1010" cy="50" r="16"/>
         <text class="arch-node-label" x="1010" y="86">Command Grid</text>
       </g>
 
@@ -139,7 +152,6 @@
     <div class="arch-legend">
       <span class="arch-legend-item"><span class="arch-legend-dot status-built"></span>Built module</span>
       <span class="arch-legend-item"><span class="arch-legend-dot status-demo"></span>Software demo module</span>
-      <span class="arch-legend-item"><span class="arch-legend-dot status-concept"></span>Concept module</span>
       <span class="arch-legend-item"><span class="arch-legend-dot status-alert"></span>Shared alert cascade</span>
     </div>
   </section>
@@ -151,10 +163,11 @@
       Fire scanning, fall detection, ambulance routing — each of these hazards is already
       well-studied in isolation, and plenty of standalone gadgets exist for each one.
       <strong>What's new in Kavach isn't any single sensor; it's the grid layer above them.</strong>
-      Every module, whether it's shipped hardware like Extingo, a live software demo like
-      Rakshak and Sanjeevani, or a reasoned concept like the four hazard modules still on
-      paper, reports into the same dashboard and triggers the same four-step escalation —
-      so a family or institution manages one safety system, not eight.
+      Every module — from shipped hardware like Extingo to the seven live software
+      demos covering intrusion, fall detection, medical dispatch, electrical faults,
+      women's safety, flood sensing, and school safety — reports into the same
+      dashboard and triggers the same four-step escalation, so a family or
+      institution manages one safety system, not eight.
     </p>
   </section>
 
@@ -163,6 +176,7 @@
 <footer class="site-footer">
   Project Kavach · RBVP 2026 · One safety brain, eight hazards.
 </footer>
+<script src="js/site-nav.js"></script>
 
 </body>
 </html>
