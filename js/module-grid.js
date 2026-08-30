@@ -7,7 +7,7 @@
   var pills = document.querySelectorAll(".filter-pill");
   var cards = document.querySelectorAll(".module-card");
   var countEl = document.getElementById("filter-count");
-  var totalsByStatus = { built: 1, demo: 2, concept: 5 };
+  var totalsByStatus = { built: 1, demo: 7, concept: 0 };
 
   function applyFilter(status) {
     cards.forEach(function (card) {
