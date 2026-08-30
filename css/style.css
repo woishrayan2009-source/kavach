@@ -208,6 +208,104 @@ a { color: inherit; }
 }
 
 /* ==========================================================================
+   Live Demos dropdown (nav)
+   ========================================================================== */
+.nav-dropdown {
+  position: relative;
+  display: flex;
+}
+
+.nav-dropdown-trigger {
+  font-family: var(--font-mono);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-dropdown-caret {
+  display: inline-block;
+  font-size: 9px;
+  margin-left: 1px;
+  transition: transform 0.2s ease;
+}
+
+.nav-dropdown-trigger[aria-expanded="true"] .nav-dropdown-caret {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-trigger[aria-expanded="true"] {
+  color: var(--teal);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 240px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow-panel);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  z-index: 40;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+}
+
+.nav-dropdown-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: var(--text-dim);
+  padding: 9px 10px;
+  border-radius: 6px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.nav-dropdown-item:hover,
+.nav-dropdown-item:focus-visible {
+  color: var(--text);
+  background: var(--surface-3);
+}
+
+.nav-dropdown-item .ext-icon {
+  margin-left: auto;
+  font-size: 10px;
+  opacity: 0.55;
+}
+
+.nav-dropdown-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.nav-dropdown-dot.status-built { background: var(--teal); box-shadow: 0 0 6px rgba(53,224,196,0.6); }
+.nav-dropdown-dot.status-demo { background: var(--amber); box-shadow: 0 0 6px rgba(255,157,46,0.6); }
+.nav-dropdown-dot.status-concept { background: var(--violet); box-shadow: 0 0 6px rgba(163,144,212,0.6); }
+
+.nav-dropdown-divider {
+  height: 1px;
+  background: var(--border-soft);
+  margin: 5px 4px;
+}
+
+/* ==========================================================================
    Hazard rule — signature divider element (exact Extingo pattern)
    ========================================================================== */
 .hazard-rule {
