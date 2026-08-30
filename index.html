@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kavach — Unified Safety Command Grid</title>
+<meta name="description" content="One safety brain. Eight hazards. Kavach unifies fire, electrical, intrusion, medical, women's safety, flood, school, and dashboard modules into one alert-escalation grid.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span class="brand-text">
+      <span class="brand-name">KAVACH</span>
+      <span class="brand-sub">Unified Safety Command Grid</span>
+    </span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a class="site-nav-link is-active" href="index.html">Modules</a>
+    <a class="site-nav-link" href="architecture.html">Architecture</a>
+    <a class="site-nav-link" href="documents.html">Documents</a>
+    <span class="site-nav-divider" aria-hidden="true"></span>
+    <a class="site-nav-link site-nav-link--external" href="#extingo" target="_blank" rel="noopener">Extingo <span class="ext-icon">↗</span></a>
+    <a class="site-nav-link site-nav-link--external" href="#rakshak" target="_blank" rel="noopener">Rakshak <span class="ext-icon">↗</span></a>
+    <a class="site-nav-link site-nav-link--external" href="#sanjeevani" target="_blank" rel="noopener">Sanjeevani <span class="ext-icon">↗</span></a>
+  </nav>
+</header>
+
+<div class="hazard-rule" role="presentation"></div>
+
+<main class="dashboard">
+
+  <!-- ============================== HERO ============================== -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <span class="hero-eyebrow">RBVP 2026 — Exhibition Hub</span>
+      <h1 class="hero-title" id="hero-title">One safety brain.<br><span class="accent">Eight hazards.</span></h1>
+      <p class="hero-body">
+        Fire, electrical faults, break-ins, medical emergencies, falls, women's safety, floods,
+        and school safety are each being solved today by separate, disconnected gadgets that
+        don't talk to each other. That's the real problem — not that any one hazard is
+        unsolved, but that solving it in isolation means a family or institution ends up
+        managing eight different apps, eight different alert chains, and eight blind spots
+        where those chains don't connect. Kavach's contribution isn't a new sensor — it's
+        proving that all eight can report into one dashboard and one shared
+        alert-escalation cascade, like a shield made of many plates acting as a single layer
+        of armor.
+      </p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-value stat-built">1</span>
+          <span class="hero-stat-label">Built · Hardware + Software</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value stat-demo">2</span>
+          <span class="hero-stat-label">Software Demo</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value stat-concept">5</span>
+          <span class="hero-stat-label">Concept &amp; Design</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-shield-wrap" aria-hidden="true">
+      <svg class="shield-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+        <!-- spokes -->
+        <g class="shield-spoke-group">
+          <line class="shield-spoke" x1="150" y1="150" x2="150" y2="42"/>
+          <line class="shield-spoke" x1="150" y1="150" x2="226.4" y2="73.6"/>
+          <line class="shield-spoke" x1="150" y1="150" x2="258" y2="150"/>
+          <line class="shield-spoke" x1="150" y1="150" x2="226.4" y2="226.4"/>
+          <line class="shield-spoke" x1="150" y1="150" x2="150" y2="258"/>
+          <line class="shield-spoke" x1="150" y1="150" x2="73.6" y2="226.4"/>
+          <line class="shield-spoke" x1="150" y1="150" x2="42" y2="150"/>
+          <line class="shield-spoke" x1="150" y1="150" x2="73.6" y2="73.6"/>
+        </g>
+
+        <!-- shield core -->
+        <path class="shield-core-fill" d="M150 96 L192 112 V152 C192 182 174 202 150 212 C126 202 108 182 108 152 V112 Z"/>
+        <path class="shield-core-glyph" d="M150 112 L178 123 V150 C178 172 165 187 150 194 C135 187 122 172 122 150 V123 Z"/>
+
+        <!-- 8 hazard nodes, ordered to match the module grid below -->
+        <circle class="shield-node status-built"   cx="150"   cy="42"    r="8"/>
+        <circle class="shield-node status-concept" cx="226.4" cy="73.6"  r="8"/>
+        <circle class="shield-node status-demo"    cx="258"   cy="150"   r="8"/>
+        <circle class="shield-node status-demo"    cx="226.4" cy="226.4" r="8"/>
+        <circle class="shield-node status-concept" cx="150"   cy="258"   r="8"/>
+        <circle class="shield-node status-concept" cx="73.6"  cy="226.4" r="8"/>
+        <circle class="shield-node status-concept" cx="42"    cy="150"   r="8"/>
+        <circle class="shield-node status-concept" cx="73.6"  cy="73.6"  r="8"/>
+      </svg>
+    </div>
+  </section>
+
+  <div class="thesis-strip">
+    <span class="thesis-strip-text">Not eight products — one grid</span>
+    <span class="thesis-strip-rule"></span>
+  </div>
+
+  <!-- =========================== FILTER BAR ============================ -->
+  <section class="filter-bar" aria-label="Filter modules by build status">
+    <span class="filter-bar-label">Filter</span>
+    <div class="filter-pills" role="group" aria-label="Module status filter">
+      <button class="filter-pill" type="button" data-filter="all" aria-pressed="true">All · 8</button>
+      <button class="filter-pill" type="button" data-filter="built" aria-pressed="false">🟢 Built · 1</button>
+      <button class="filter-pill" type="button" data-filter="demo" aria-pressed="false">🟡 Software Demo · 2</button>
+      <button class="filter-pill" type="button" data-filter="concept" aria-pressed="false">🔵 Concept · 5</button>
+    </div>
+    <span class="filter-count" id="filter-count" aria-live="polite">Showing all 8 modules</span>
+  </section>
+
+  <!-- ============================ MODULE GRID ========================== -->
+  <section aria-label="Kavach modules">
+    <div class="module-grid" id="module-grid">
+
+      <!-- 1. Extingo — Built -->
+      <article class="module-card module-card--built" data-status="built">
+        <div class="module-card-head">
+          <div class="module-card-heading">
+            <span class="module-tag">Fire &amp; Gas</span>
+            <h2 class="module-title">Extingo</h2>
+          </div>
+          <span class="demo-mode-badge demo-mode-badge--built"><span class="demo-mode-dot"></span>Built</span>
+        </div>
+        <div class="module-copy">
+          <div class="module-line">
+            <span class="module-line-label">Problem</span>
+            <p class="module-line-text">Fire spreads in minutes. Manual detection and response are too slow, and human panic during evacuation delays the first suppression attempt.</p>
+          </div>
+          <div class="module-line">
+            <span class="module-line-label">Solution</span>
+            <p class="module-line-text">Autonomous IR/heat/smoke scanning, two-sensor fire confirmation, PIR-gated pump pressure so it never sprays a person, and a five-layer alert cascade.</p>
+          </div>
+        </div>
+        <div class="module-card-foot">
+          <a class="btn-primary" href="#extingo">View Live Project →</a>
+        </div>
+      </article>
+
+      <!-- 2. Electrical Fault Early-Warning — Concept -->
+      <article class="module-card module-card--concept" data-status="concept">
+        <div class="module-card-head">
+          <div class="module-card-heading">
+            <span class="module-tag">Electrical</span>
+            <h2 class="module-title">Electrical Fault Early-Warning</h2>
+          </div>
+          <span class="demo-mode-badge demo-mode-badge--concept"><span class="demo-mode-dot"></span>Concept</span>
+        </div>
+        <p class="module-status-note">Concept only — no hardware or software built yet.</p>
+        <div class="module-copy">
+          <div class="module-line">
+            <span class="module-line-label">Problem</span>
+            <p class="module-line-text">Electrical short-circuits are India's single largest cause of urban fires, and most safety projects only react after flame or smoke — by which point the fault has already ignited something.</p>
+          </div>
+          <div class="module-line">
+            <span class="module-line-label">Solution</span>
+            <p class="module-line-text">A current-sensing module that watches for the erratic signature of arcing and cuts power to that circuit before it reaches ignition temperature.</p>
+          </div>
+        </div>
+        <div class="module-card-foot">
+          <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="panel-electrical">
+            <span class="accordion-toggle-icon">▸</span> Read the full concept
+          </button>
+          <div class="accordion-panel" id="panel-electrical">
+            <div class="accordion-panel-inner">
+              <div class="module-line">
+                <span class="module-line-label">In full</span>
+                <p class="module-line-text">In Delhi alone, roughly 70% of fire calls are attributed to electrical short-circuiting, and fire-safety engineers note that micro-arcing — a hazardous spark inside wiring, distinct from a full short — causes the large majority of these before any flame is visible. Arc-Fault Circuit Interrupters that catch this early have been mandatory in U.S. homes since 1999 but are essentially absent from Indian residential wiring codes. The proposed module clips a non-invasive current transformer onto a circuit, distinguishes arcing's erratic signature from a normal overload, and reports the fault to the Kavach dashboard the same way Extingo reports a confirmed fire.</p>
+              </div>
+              <div class="module-line">
+                <span class="module-line-label">Why it strengthens Kavach</span>
+                <p class="module-line-text">It's the one module that acts before a fire starts, not after — a meaningfully different value proposition from every other module in the grid.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. Rakshak — Software Demo -->
+      <article class="module-card module-card--demo" data-status="demo">
+        <div class="module-card-head">
+          <div class="module-card-heading">
+            <span class="module-tag">Intrusion &amp; Fall</span>
+            <h2 class="module-title">Rakshak</h2>
+          </div>
+          <span class="demo-mode-badge demo-mode-badge--demo"><span class="demo-mode-dot"></span>Software Demo</span>
+        </div>
+        <div class="module-copy">
+          <div class="module-line">
+            <span class="module-line-label">Problem</span>
+            <p class="module-line-text">Homes with elderly members or people living alone need both a security layer and a fall-safety layer, but wearables fail exactly when someone can't reach or press them.</p>
+          </div>
+          <div class="module-line">
+            <span class="module-line-label">Solution</span>
+            <p class="module-line-text">One camera, two on-device AI models — face recognition for unknown-person alerts, pose tracking for fall detection — both feeding the same alert cascade.</p>
+          </div>
+        </div>
+        <div class="module-card-foot">
+          <a class="btn-primary" href="#rakshak">View Live Project →</a>
+        </div>
+      </article>
+
+      <!-- 4. Sanjeevani — Software Demo -->
+      <article class="module-card module-card--demo" data-status="demo">
+        <div class="module-card-head">
+          <div class="module-card-heading">
+            <span class="module-tag">Medical Dispatch</span>
+            <h2 class="module-title">Sanjeevani</h2>
+          </div>
+          <span class="demo-mode-badge demo-mode-badge--demo"><span class="demo-mode-dot"></span>Software Demo</span>
+        </div>
+        <div class="module-copy">
+          <div class="module-line">
+            <span class="module-line-label">Problem</span>
+            <p class="module-line-text">Only about 1 in 5 accident victims in India reach care within the golden hour; ambulance density sits below WHO's recommended ratio, and highway response commonly takes 25–35 minutes.</p>
+          </div>
+          <div class="module-line">
+            <span class="module-line-label">Solution</span>
+            <p class="module-line-text">Smart ambulance-to-patient and patient-to-hospital routing plus a hospital pre-alert, simulated with real routing data.</p>
+          </div>
+        </div>
+        <div class="module-card-foot">
+          <a class="btn-primary" href="#sanjeevani">View Live Project →</a>
+        </div>
+      </article>
+
+      <!-- 5. Women's Safety Panic Trigger — Concept -->
+      <article class="module-card module-card--concept" data-status="concept">
+        <div class="module-card-head">
+          <div class="module-card-heading">
+            <span class="module-tag">Women's Safety</span>
+            <h2 class="module-title">Panic Trigger</h2>
+          </div>
+          <span class="demo-mode-badge demo-mode-badge--concept"><span class="demo-mode-dot"></span>Concept</span>
+        </div>
+        <p class="module-status-note">Concept only — no hardware or software built yet.</p>
+        <div class="module-copy">
+          <div class="module-line">
+            <span class="module-line-label">Problem</span>
+            <p class="module-line-text">Manual panic-button wearables require the wearer to be conscious, free, and able to physically press a button — precisely the condition that's often not met in a real assault.</p>
+          </div>
+          <div class="module-line">
+            <span class="module-line-label">Solution</span>
+            <p class="module-line-text">A low-cost heart-rate and accelerometer anomaly detector as an automatic secondary trigger, alongside the manual button, so the alert can still fire even if the wearer can't act.</p>
+          </div>
+        </div>
+        <div class="module-card-foot">
+          <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="panel-women">
+            <span class="accordion-toggle-icon">▸</span> Read the full concept
+          </button>
+          <div class="accordion-panel" id="panel-women">
+            <div class="accordion-panel-inner">
+              <div class="module-line">
+                <span class="module-line-label">In full</span>
+                <p class="module-line-text">Manual panic-button wearables are already a very common category, but their core weakness is that they stop at "press this button." The proposed change is a sudden, sharp heart-rate spike combined with irregular, forceful motion — an automatic secondary trigger that reports into the same Kavach alert cascade (SMS, call, live location) already proven in Extingo and Rakshak, rather than existing as a standalone gadget.</p>
+              </div>
+              <div class="module-line">
+                <span class="module-line-label">Why frame it this way</span>
+                <p class="module-line-text">Presenting it as "we know this category is common, here's specifically what we changed and why" is far stronger in front of judges than presenting it as if it were novel outright.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6. Flood / Water-Level Sensing — Concept -->
+      <article class="module-card module-card--concept" data-status="concept">
+        <div class="module-card-head">
+          <div class="module-card-heading">
+            <span class="module-tag">Flood</span>
+            <h2 class="module-title">Water-Level Sensing</h2>
+          </div>
+          <span class="demo-mode-badge demo-mode-badge--concept"><span class="demo-mode-dot"></span>Concept</span>
+        </div>
+        <p class="module-status-note">Concept only — no hardware or software built yet.</p>
+        <div class="module-copy">
+          <div class="module-line">
+            <span class="module-line-label">Problem</span>
+            <p class="module-line-text">Sudden waterlogging and flash flooding in flood-prone towns often catches residents unaware, because there's no local early-warning layer beneath river-basin-scale forecasting.</p>
+          </div>
+          <div class="module-line">
+            <span class="module-line-label">Solution</span>
+            <p class="module-line-text">An ultrasonic water-level sensor at a known reference height that reports rate-of-rise to the dashboard and triggers a local alarm plus SMS once water crosses a safety threshold.</p>
+          </div>
+        </div>
+        <div class="module-card-foot">
+          <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="panel-flood">
+            <span class="accordion-toggle-icon">▸</span> Read the full concept
+          </button>
+          <div class="accordion-panel" id="panel-flood">
+            <div class="accordion-panel-inner">
+              <div class="module-line">
+                <span class="module-line-label">In full</span>
+                <p class="module-line-text">A drain, basement entrance, or low-lying street point gets an ultrasonic sensor mounted at a known reference height, reporting rate-of-rise the same way Extingo's heat sensor already does — just reapplied to a different hazard.</p>
+              </div>
+              <div class="module-line">
+                <span class="module-line-label">Why it strengthens Kavach</span>
+                <p class="module-line-text">It reuses the same rate-of-rise algorithm concept from Extingo — one idea, three hazards: heat, water, and by extension gas concentration.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7. School/Child Safety Tracking — Concept -->
+      <article class="module-card module-card--concept" data-status="concept">
+        <div class="module-card-head">
+          <div class="module-card-heading">
+            <span class="module-tag">School Safety</span>
+            <h2 class="module-title">Child Safety Tracking</h2>
+          </div>
+          <span class="demo-mode-badge demo-mode-badge--concept"><span class="demo-mode-dot"></span>Concept</span>
+        </div>
+        <p class="module-status-note">Concept only — no hardware or software built yet.</p>
+        <div class="module-copy">
+          <div class="module-line">
+            <span class="module-line-label">Problem</span>
+            <p class="module-line-text">Parents often have no confirmation a child was safely dropped at school or picked up — most school transport systems still rely on manual attendance.</p>
+          </div>
+          <div class="module-line">
+            <span class="module-line-label">Solution</span>
+            <p class="module-line-text">An RFID tap-in/tap-out system at the school gate and bus door that notifies a parent's phone the moment a child taps in or out.</p>
+          </div>
+        </div>
+        <div class="module-card-foot">
+          <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="panel-school">
+            <span class="accordion-toggle-icon">▸</span> Read the full concept
+          </button>
+          <div class="accordion-panel" id="panel-school">
+            <div class="accordion-panel-inner">
+              <div class="module-line">
+                <span class="module-line-label">In full</span>
+                <p class="module-line-text">Beyond the tap notification itself, the system raises an alert to the Kavach dashboard if a child who tapped onto the morning bus never taps in at school within an expected time window — catching the case a simple notification would miss.</p>
+              </div>
+              <div class="module-line">
+                <span class="module-line-label">Why it strengthens Kavach</span>
+                <p class="module-line-text">It extends the safety theme beyond the home into the school, broadening the project's relevance for the exhibition's theme.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8. Unified Dashboard / Command Grid — Concept -->
+      <article class="module-card module-card--concept" data-status="concept">
+        <div class="module-card-head">
+          <div class="module-card-heading">
+            <span class="module-tag">Command Grid</span>
+            <h2 class="module-title">Unified Dashboard</h2>
+          </div>
+          <span class="demo-mode-badge demo-mode-badge--concept"><span class="demo-mode-dot"></span>Concept</span>
+        </div>
+        <p class="module-status-note">Concept only — no hardware or software built yet.</p>
+        <div class="module-copy">
+          <div class="module-line">
+            <span class="module-line-label">Problem</span>
+            <p class="module-line-text">Every module above, on its own, is a point solution. None of them talk to each other, and a family or institution would need eight separate apps.</p>
+          </div>
+          <div class="module-line">
+            <span class="module-line-label">Solution</span>
+            <p class="module-line-text">One dashboard where every module reports its status, and one shared alert-escalation chain — local alarm, SMS, Telegram with snapshot and location, automated call — that every module reuses.</p>
+          </div>
+        </div>
+        <div class="module-card-foot">
+          <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="panel-grid">
+            <span class="accordion-toggle-icon">▸</span> Read the full concept
+          </button>
+          <div class="accordion-panel" id="panel-grid">
+            <div class="accordion-panel-inner">
+              <div class="module-line">
+                <span class="module-line-label">Why this is the actual thesis</span>
+                <p class="module-line-text">This is the connective idea behind the whole project: not eight products, one grid. See the <a href="architecture.html">Architecture</a> page for the full diagram of how each module feeds into this shared cascade.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  Project Kavach · RBVP 2026 · One safety brain, eight hazards.
+</footer>
+
+<script src="js/module-grid.js"></script>
+
+</body>
+</html>
