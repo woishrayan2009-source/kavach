@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Architecture — Kavach</title>
+<meta name="description" content="How Kavach's eight modules feed one dashboard hub and one shared alert-escalation cascade.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span class="brand-text">
+      <span class="brand-name">KAVACH</span>
+      <span class="brand-sub">Unified Safety Command Grid</span>
+    </span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a class="site-nav-link" href="index.html">Modules</a>
+    <a class="site-nav-link is-active" href="architecture.html">Architecture</a>
+    <a class="site-nav-link" href="documents.html">Documents</a>
+    <span class="site-nav-divider" aria-hidden="true"></span>
+    <a class="site-nav-link site-nav-link--external" href="#extingo" target="_blank" rel="noopener">Extingo <span class="ext-icon">↗</span></a>
+    <a class="site-nav-link site-nav-link--external" href="#rakshak" target="_blank" rel="noopener">Rakshak <span class="ext-icon">↗</span></a>
+    <a class="site-nav-link site-nav-link--external" href="#sanjeevani" target="_blank" rel="noopener">Sanjeevani <span class="ext-icon">↗</span></a>
+  </nav>
+</header>
+
+<div class="hazard-rule" role="presentation"></div>
+
+<main class="dashboard">
+
+  <section class="arch-intro">
+    <span class="hero-eyebrow">System Design</span>
+    <h1 class="arch-title">Eight modules. One hub. One cascade.</h1>
+    <p class="arch-subtitle">
+      Every sensor below is well-studied on its own — fire detection, fall detection, ambulance
+      routing, and the rest are each individually solvable problems. What isn't already
+      solved is the layer underneath: getting all eight to report into one dashboard and
+      escalate through one shared alert chain instead of eight disconnected ones.
+    </p>
+  </section>
+
+  <!-- ============================ DIAGRAM ============================== -->
+  <section class="arch-diagram-panel" aria-label="Kavach system architecture diagram">
+    <svg class="arch-svg" viewBox="0 0 1080 620" xmlns="http://www.w3.org/2000/svg" role="img"
+         aria-label="Diagram: eight hazard modules feed into the Kavach Dashboard hub, which feeds into a shared alert cascade — Local Alarm, then SMS, then Telegram with snapshot, then Automated Call.">
+
+      <!-- feed lines: modules -> hub -->
+      <path class="arch-feed-line status-built"   d="M 70.0 66 Q 70.0 140 540 178"/>
+      <path class="arch-feed-line status-concept" d="M 204.3 66 Q 204.3 140 540 178"/>
+      <path class="arch-feed-line status-demo"    d="M 338.6 66 Q 338.6 140 540 178"/>
+      <path class="arch-feed-line status-demo"    d="M 472.9 66 Q 472.9 140 540 178"/>
+      <path class="arch-feed-line status-concept" d="M 607.1 66 Q 607.1 140 540 178"/>
+      <path class="arch-feed-line status-concept" d="M 741.4 66 Q 741.4 140 540 178"/>
+      <path class="arch-feed-line status-concept" d="M 875.7 66 Q 875.7 140 540 178"/>
+      <path class="arch-feed-line status-concept" d="M 1010.0 66 Q 1010.0 140 540 178"/>
+
+      <!-- module nodes -->
+      <g>
+        <circle class="arch-node-dot status-built" cx="70" cy="50" r="16"/>
+        <text class="arch-node-label" x="70" y="86">Extingo</text>
+
+        <circle class="arch-node-dot status-concept" cx="204.3" cy="50" r="16"/>
+        <text class="arch-node-label" x="204.3" y="86">Electrical</text>
+
+        <circle class="arch-node-dot status-demo" cx="338.6" cy="50" r="16"/>
+        <text class="arch-node-label" x="338.6" y="86">Rakshak</text>
+
+        <circle class="arch-node-dot status-demo" cx="472.9" cy="50" r="16"/>
+        <text class="arch-node-label" x="472.9" y="86">Sanjeevani</text>
+
+        <circle class="arch-node-dot status-concept" cx="607.1" cy="50" r="16"/>
+        <text class="arch-node-label" x="607.1" y="86">Women's Safety</text>
+
+        <circle class="arch-node-dot status-concept" cx="741.4" cy="50" r="16"/>
+        <text class="arch-node-label" x="741.4" y="86">Flood</text>
+
+        <circle class="arch-node-dot status-concept" cx="875.7" cy="50" r="16"/>
+        <text class="arch-node-label" x="875.7" y="86">School Safety</text>
+
+        <circle class="arch-node-dot status-concept" cx="1010" cy="50" r="16"/>
+        <text class="arch-node-label" x="1010" y="86">Command Grid</text>
+      </g>
+
+      <!-- hub -->
+      <circle class="arch-hub-glow" cx="540" cy="210" r="58"/>
+      <circle class="arch-hub-fill" cx="540" cy="210" r="42"/>
+      <text class="arch-hub-title" x="540" y="205">KAVACH</text>
+      <text class="arch-hub-sub" x="540" y="221">DASHBOARD</text>
+
+      <!-- hub -> cascade connector -->
+      <path class="arch-connector" d="M 540 252 L 540 330 L 190 330 L 190 410"/>
+
+      <!-- alert cascade: Local Alarm -> SMS -> Telegram + Snapshot -> Automated Call -->
+      <g>
+        <rect class="arch-cascade-box" x="95" y="410" width="190" height="100" rx="8"/>
+        <text class="arch-cascade-step" x="190" y="434">Step 1</text>
+        <text class="arch-cascade-icon" x="190" y="466">🔔</text>
+        <text class="arch-cascade-label" x="190" y="496">Local Alarm</text>
+      </g>
+
+      <line class="arch-cascade-arrow" x1="285" y1="460" x2="320" y2="460" marker-end="url(#arch-arrowhead)"/>
+
+      <g>
+        <rect class="arch-cascade-box" x="325" y="410" width="190" height="100" rx="8"/>
+        <text class="arch-cascade-step" x="420" y="434">Step 2</text>
+        <text class="arch-cascade-icon icon-2" x="420" y="466">📩</text>
+        <text class="arch-cascade-label" x="420" y="496">SMS</text>
+      </g>
+
+      <line class="arch-cascade-arrow" x1="515" y1="460" x2="550" y2="460" marker-end="url(#arch-arrowhead)"/>
+
+      <g>
+        <rect class="arch-cascade-box" x="555" y="410" width="190" height="100" rx="8"/>
+        <text class="arch-cascade-step" x="650" y="434">Step 3</text>
+        <text class="arch-cascade-icon icon-3" x="650" y="466">📸</text>
+        <text class="arch-cascade-label" x="650" y="496">Telegram + Snapshot</text>
+      </g>
+
+      <line class="arch-cascade-arrow" x1="745" y1="460" x2="780" y2="460" marker-end="url(#arch-arrowhead)"/>
+
+      <g>
+        <rect class="arch-cascade-box" x="785" y="410" width="190" height="100" rx="8"/>
+        <text class="arch-cascade-step" x="880" y="434">Step 4</text>
+        <text class="arch-cascade-icon icon-4" x="880" y="466">☎️</text>
+        <text class="arch-cascade-label" x="880" y="496">Automated Call</text>
+      </g>
+
+      <defs>
+        <marker id="arch-arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="var(--red)"/>
+        </marker>
+      </defs>
+    </svg>
+
+    <div class="arch-legend">
+      <span class="arch-legend-item"><span class="arch-legend-dot status-built"></span>Built module</span>
+      <span class="arch-legend-item"><span class="arch-legend-dot status-demo"></span>Software demo module</span>
+      <span class="arch-legend-item"><span class="arch-legend-dot status-concept"></span>Concept module</span>
+      <span class="arch-legend-item"><span class="arch-legend-dot status-alert"></span>Shared alert cascade</span>
+    </div>
+  </section>
+
+  <!-- ============================ NOTE PANEL ============================ -->
+  <section class="arch-note-panel">
+    <span class="arch-note-eyebrow">The actual contribution</span>
+    <p class="arch-note-text">
+      Fire scanning, fall detection, ambulance routing — each of these hazards is already
+      well-studied in isolation, and plenty of standalone gadgets exist for each one.
+      <strong>What's new in Kavach isn't any single sensor; it's the grid layer above them.</strong>
+      Every module, whether it's shipped hardware like Extingo, a live software demo like
+      Rakshak and Sanjeevani, or a reasoned concept like the four hazard modules still on
+      paper, reports into the same dashboard and triggers the same four-step escalation —
+      so a family or institution manages one safety system, not eight.
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  Project Kavach · RBVP 2026 · One safety brain, eight hazards.
+</footer>
+
+</body>
+</html>
