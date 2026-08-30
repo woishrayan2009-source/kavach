@@ -22,9 +22,22 @@
     <a class="site-nav-link" href="architecture.html">Architecture</a>
     <a class="site-nav-link is-active" href="documents.html">Documents</a>
     <span class="site-nav-divider" aria-hidden="true"></span>
-    <a class="site-nav-link site-nav-link--external" href="#extingo" target="_blank" rel="noopener">Extingo <span class="ext-icon">↗</span></a>
-    <a class="site-nav-link site-nav-link--external" href="#rakshak" target="_blank" rel="noopener">Rakshak <span class="ext-icon">↗</span></a>
-    <a class="site-nav-link site-nav-link--external" href="#sanjeevani" target="_blank" rel="noopener">Sanjeevani <span class="ext-icon">↗</span></a>
+    <div class="nav-dropdown">
+      <button class="site-nav-link site-nav-link--external nav-dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="live-demos-menu">
+        Live Demos <span class="ext-icon nav-dropdown-caret">▾</span>
+      </button>
+      <div class="nav-dropdown-menu" id="live-demos-menu" role="menu" aria-label="Kavach live sites">
+        <a class="nav-dropdown-item" href="#extingo" target="_blank" rel="noopener" role="menuitem"><span class="nav-dropdown-dot status-built"></span>Extingo<span class="ext-icon">↗</span></a>
+        <a class="nav-dropdown-item" href="#rakshak" target="_blank" rel="noopener" role="menuitem"><span class="nav-dropdown-dot status-demo"></span>Rakshak<span class="ext-icon">↗</span></a>
+        <a class="nav-dropdown-item" href="#sanjeevani" target="_blank" rel="noopener" role="menuitem"><span class="nav-dropdown-dot status-demo"></span>Sanjeevani<span class="ext-icon">↗</span></a>
+        <div class="nav-dropdown-divider" role="separator"></div>
+        <a class="nav-dropdown-item" href="#electrical-fault" target="_blank" rel="noopener" role="menuitem"><span class="nav-dropdown-dot status-demo"></span>Electrical Fault Early-Warning<span class="ext-icon">↗</span></a>
+        <a class="nav-dropdown-item" href="#panic-trigger" target="_blank" rel="noopener" role="menuitem"><span class="nav-dropdown-dot status-demo"></span>Panic Trigger<span class="ext-icon">↗</span></a>
+        <a class="nav-dropdown-item" href="#water-level-sensing" target="_blank" rel="noopener" role="menuitem"><span class="nav-dropdown-dot status-demo"></span>Water-Level Sensing<span class="ext-icon">↗</span></a>
+        <a class="nav-dropdown-item" href="#child-safety-tracking" target="_blank" rel="noopener" role="menuitem"><span class="nav-dropdown-dot status-demo"></span>Child Safety Tracking<span class="ext-icon">↗</span></a>
+        <a class="nav-dropdown-item" href="#unified-dashboard" target="_blank" rel="noopener" role="menuitem"><span class="nav-dropdown-dot status-demo"></span>Unified Dashboard<span class="ext-icon">↗</span></a>
+      </div>
+    </div>
   </nav>
 </header>
 
@@ -108,7 +121,7 @@
       <div class="doc-card-head">
         <span class="doc-card-eyebrow">PDF · Logbook</span>
         <h2 class="doc-card-title">Build Logbook</h2>
-        <p class="doc-card-desc">The dated project journal — decisions, dead ends, and progress across all three built/demo modules and the four concept proposals.</p>
+        <p class="doc-card-desc">The dated project journal — decisions, dead ends, and progress across all eight hazard modules, from Extingo's hardware build to the seven live software demos.</p>
       </div>
       <div class="doc-preview-wrap">
         <div class="doc-preview-fallback">
@@ -150,7 +163,7 @@
       <div class="doc-card-head">
         <span class="doc-card-eyebrow">MP4 · Demo Video</span>
         <h2 class="doc-card-title">Demo Video</h2>
-        <p class="doc-card-desc">A walkthrough of Extingo, Rakshak, and Sanjeevani in action, plus a short explainer of the four concept modules.</p>
+        <p class="doc-card-desc">A walkthrough of all eight modules in action — Extingo's built hardware plus the seven live software demos — end to end.</p>
       </div>
       <div class="doc-preview-wrap">
         <div class="doc-preview-fallback">
@@ -175,6 +188,7 @@
 <footer class="site-footer">
   Project Kavach · RBVP 2026 · One safety brain, eight hazards.
 </footer>
+<script src="js/site-nav.js"></script>
 
 </body>
 </html>
